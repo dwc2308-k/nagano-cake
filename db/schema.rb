@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2023_09_19_100848) do
 
 
   create_table "items", force: :cascade do |t|
-    t.boolean "checked", default: true, null: false
+    t.boolean "is_active", default: true, null: false
     t.string "name"
     t.integer "price_excluding_tax"
     t.text "description"
