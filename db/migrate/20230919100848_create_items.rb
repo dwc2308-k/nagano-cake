@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
     create_table :items do |t|
 
       
-      t.boolean :checked, null: false, default: true
+      t.boolean :is_active, null: false, default: true
       t.string :name
       t.integer :price_excluding_tax
       t.text :description
