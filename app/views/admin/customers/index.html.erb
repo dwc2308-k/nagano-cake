@@ -18,7 +18,11 @@
                 </td>
                 <td><%= customer.email %></td>
                 <td>
-                    <!-- 会員ステータスが有効もしくは退会と表示したい -->
+                    <% if customer.is_deleted == '有効' %>
+                        <%= customer.is_deleted_i18n %>
+                    <% else %>
+                        <%= customer.is_deleted_i18n %>
+                    <% end %>
                 </td>
             </tr>
         <% end %>
