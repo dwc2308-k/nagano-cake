@@ -7,6 +7,8 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :name
       t.integer :price_excluding_tax
       t.text :description
+      t.integer :genre_id, null: false
+      
 
       t.timestamps
       
