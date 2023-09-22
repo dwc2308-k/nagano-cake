@@ -1,3 +1,7 @@
- ja:
-  enums:
-   
+ja:
+    enums:
+        customer:
+            is_deleted:
+                false: 退会
+                true: 有効
+
