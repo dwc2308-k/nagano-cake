@@ -1,0 +1,23 @@
+<h1>show item</h1>
+<h2>
+<% if @item.image.attached? %>
+ <%= image_tag @item.image, size: "200x150" %>
+<% else %>
+ <%= image_tag 'no_image', size: "200x200" %>
+<% end %>
+<%= @item.name %>
+<%= @item.description %>
+<%= @item.name %>
+<%= @item.price_excluding_tax %>
+<%= @item.is_active %>
+
+
+<%  if @item.is_active == true %>
+  <p>販売中</p>
+    <p>¥ <%= @item.price_excluding_tax * 1.1 %> (税込)</p>
+<% else %>
+  <p>販売停止中</p>
+<% end %>
+
+
+</h2>

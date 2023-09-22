@@ -68,7 +68,14 @@ ActiveRecord::Schema.define(version: 2023_09_20_042451) do
   end
 
   create_table "genres", force: :cascade do |t|
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.boolean "is_active", default: true, null: false
     t.string "name"
+    t.integer "price_excluding_tax"
+    t.text "description"
+    
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
