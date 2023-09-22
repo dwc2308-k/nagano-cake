@@ -1,11 +1,11 @@
 <h2>マイページ</h2>
 
 <h4><strong>登録情報</strong></h4>
-<%= link_to "編集する", edit_customers_path %>
+<%= link_to "編集する", edit_customer_password_path %>
 
 <tr>
     <th>お名前</th>
-    <td><%= @customer.last_name + @customer.first_name %></td>
+    <td><%=  @customer.last_name + @customer.first_name %></td>
 </tr>
 
 <tr>
