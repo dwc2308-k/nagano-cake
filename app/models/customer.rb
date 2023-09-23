@@ -1,9 +1,9 @@
 class Customer < ApplicationRecord
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
 
         validates :encrypted_password_confirmation, presence: true
         validates :encrypted_password, length: { minimum: 1, maximum: 6 }
@@ -15,4 +15,6 @@ class Customer < ApplicationRecord
         validates :address, presence: true
         validates :phone_number, presence: true, format: { with: /\A\d{10,11}\z/ }
         validates :email, presence: true
+  enum is_deleted: { 退会: 0, 有効: 1 }
+  
 end
