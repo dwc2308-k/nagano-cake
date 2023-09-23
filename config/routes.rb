@@ -22,8 +22,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
   namespace :public do
-    resources :customers, only: [:show, :edit, :update,:unsubscribe]
-    resources :homes, only: [:top,:about]
+     root "homes#top"
+     get "/about" => "homes#about"
+     get "/customers/unsubscribe" => "customers#unsubscribe"
+     get "/customers/mypage" => "customers#show"
+     get "/customers/information/edit" => "customers#edit"
+     patch "/customers" => "customers#update"
     resources :items, only: [:index,:show]
   end
 
