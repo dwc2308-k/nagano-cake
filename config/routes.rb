@@ -29,6 +29,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      get "/customers/information/edit" => "customers#edit"
      patch "/customers" => "customers#update"
     resources :items, only: [:index,:show]
+    resources :addresses, only: [:index,:create,:edit,:update,:destroy]
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
