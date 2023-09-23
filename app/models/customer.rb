@@ -11,9 +11,9 @@ class Customer < ApplicationRecord
         validates :first_name, presence: true
         validates :last_name_kana, presence: true
         validates :first_name_kana, presence: true
-        #validates :postcode, presence: true , format: { with: /\A\d{10,11}\z/ }
+        validates :postcode, presence: true
         validates :address, presence: true
-        #validates :phone_number, presence: true , format: { with: /\A\d{10,11}\z/ }
+        validates :phone_number, presence: true
         validates :email, presence: true
   enum is_deleted: { 退会: 0, 有効: 1 }
 
