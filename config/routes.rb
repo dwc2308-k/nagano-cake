@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'orders/index'
+    get 'orders/show'
+  end
   devise_for :users
 
   # 管理者用
