@@ -5,6 +5,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+        has_many :addresses
+
         #validates :encrypted_password_confirmation, presence: true
         #validates :encrypted_password, length: { minimum: 1, maximum: 6 }
         validates :last_name, presence: true

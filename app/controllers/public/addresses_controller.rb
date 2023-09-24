@@ -1,4 +1,4 @@
-class AddressesController < ApplicationController
+class Public::AddressesController < ApplicationController
 
   before_action :authenticate_customer!
 
@@ -7,11 +7,11 @@ class AddressesController < ApplicationController
     @address = Address.new
   end
 
-  def edit
+  def edits
   end
 
   def create
-    @address = ShipCity.new(address_params)
+    @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
       flash[:notice] = "You have created address successfully."
@@ -28,5 +28,8 @@ class AddressesController < ApplicationController
   def destroy
   end
 
-
+  private
+  def address_params
+    params.require(:address).permit(:postcode, :address, :name)
+  end
 end
