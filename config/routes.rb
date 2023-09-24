@@ -12,6 +12,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :items
+    resources :orders, only: [:show, :update]
   end
 
   # 顧客用
