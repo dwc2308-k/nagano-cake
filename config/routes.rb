@@ -23,18 +23,19 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  sessions: 'public/sessions'
 }
 
+
  namespace :public do
-    root "homes#top"
-    get "/about" => "homes#about"
-    get "/customers/unsubscribe" => "customers#unsubscribe"
-    get "/customers/mypage" => "customers#show"
-    get "/customers/information/edit" => "customers#edit"
-    get 'orders/index'
-    get 'orders/show'
-    patch "/customers" => "customers#update"
-    resources :items, only: [:index,:show]
-    resources :addresses, only: [:index,:create,:edit,:update,:destroy]
-    resources :cart_items, only: [:index, :update, :create, :destroy]
+   root "homes#top"
+   get "/about" => "homes#about"
+   get "/customers/unsubscribe" => "customers#unsubscribe"
+   get "/customers/mypage" => "customers#show"
+   get "/customers/information/edit" => "customers#edit"
+   patch "/customers" => "customers#update"
+   get 'orders/index'
+   get 'orders/show'
+  resources :items, only: [:index,:show]
+  resources :addresses, only: [:index,:create,:edit,:update,:destroy]
+  resources :cart_items, only: [:index, :update, :create, :destroy]
   delete "/cart_items/destroy_all" => "cart_items#destroy_all"
  end
 
