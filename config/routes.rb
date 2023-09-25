@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'orders/index'
+    get 'orders/show'
+  end
   devise_for :users
 
   # 管理者用
@@ -24,8 +28,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
   namespace :public do
-    resources :customers, only: [:show, :edit, :update,:unsubscribe]
-    resources :homes, only: [:top,:about]
+     root "homes#top"
+     get "/about" => "homes#about"
+     get "/customers/unsubscribe" => "customers#unsubscribe"
+     get "/customers/mypage" => "customers#show"
+     get "/customers/information/edit" => "customers#edit"
+     patch "/customers" => "customers#update"
     resources :items, only: [:index,:show]
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete "/cart_items/destroy_all" => "cart_items#destroy_all"
