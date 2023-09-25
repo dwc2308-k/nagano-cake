@@ -27,6 +27,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :customers, only: [:show, :edit, :update,:unsubscribe]
     resources :homes, only: [:top,:about]
     resources :items, only: [:index,:show]
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete "/cart_items/destroy_all" => "cart_items#destroy_all"
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
