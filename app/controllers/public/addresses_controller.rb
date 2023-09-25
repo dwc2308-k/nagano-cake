@@ -7,7 +7,7 @@ class Public::AddressesController < ApplicationController
     @address = Address.new
   end
 
-  def edits
+  def edit
     @address = Address.find(params[:id])
   end
 
@@ -16,7 +16,7 @@ class Public::AddressesController < ApplicationController
     @address.customer_id = current_customer.id
     if @address.save
       flash[:notice] = "You have created address successfully."
-      redirect_to public_addresses_path
+      redirect_to public_addresses_path(@address)
     else
       @addresses = current_customer.addresses
       render 'index'
@@ -27,7 +27,7 @@ class Public::AddressesController < ApplicationController
       @address = Address.find(params[:id])
       if @address.update(address_params)
         flash[:success] = "配送先の変更内容を保存しました。"
-        redirect_to public_addresses_path
+        redirect_to public_addresses_pathh(@address)
       else
         flash[:danger] = "配送先の変更内容に不備があります。"
         render :edit
