@@ -35,6 +35,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      get "/customers/information/edit" => "customers#edit"
      patch "/customers" => "customers#update"
     resources :items, only: [:index,:show]
+    resources :addresses, only: [:index,:create,:edit,:update,:destroy]
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete "/cart_items/destroy_all" => "cart_items#destroy_all"
   end
