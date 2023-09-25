@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
     
     def index
         @cart_items = CartItem.all
+        @total = @cart_items.inject(0) { |sum, item| sum + cart_item.subtotal }
     end
     
     def update
@@ -32,6 +33,7 @@ class Public::CartItemsController < ApplicationController
     end
     
     def destroy_all
+        @destroy = CartItem.all
         current_user.cart_items.destroy_all
         redirect_to request.referer
     end
