@@ -17,11 +17,11 @@
 
     <% if customer_signed_in? %>
 
-    <%= link_to "マイページ" %>
+    <%= link_to "マイページ",public_customers_mypage_path %>
 
-    <%= link_to "商品一覧" %>
+    <%= link_to "商品一覧", public_items_path %>
 
-    <%= link_to "カート" %>
+    <%= link_to "カート", public_cart_items_path %>
 
     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
 
@@ -39,9 +39,9 @@
 
     <% else %>
 
-    <%= link_to "About" %>
+    <%= link_to "About", public_about_path %>
 
-    <%= link_to "商品一覧" %>
+    <%= link_to "商品一覧", public_items_path %>
 
     <%= link_to "新規登録", new_customer_registration_path, class: "btn" %>
 

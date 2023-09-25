@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'orders/index'
-    get 'orders/show'
-  end
   devise_for :users
 
   # 管理者用
@@ -34,6 +30,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      get "/customers/mypage" => "customers#show"
      get "/customers/information/edit" => "customers#edit"
      patch "/customers" => "customers#update"
+     get 'orders/index'
+    get 'orders/show'
     resources :items, only: [:index,:show]
     resources :addresses, only: [:index,:create,:edit,:update,:destroy]
     resources :cart_items, only: [:index, :update, :create, :destroy]
