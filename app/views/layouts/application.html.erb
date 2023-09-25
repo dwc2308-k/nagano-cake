@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0
+  /css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  -->
 
-
-    <script src="https://kit.fontawesome.com/57fefeb910.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/332606f7af.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,7 +17,7 @@
   <body>
     <h1><%= image_tag('s.png') %></h1>
 
-    <% if customer_signed_in? %>
+<% if customer_signed_in? %>
 
     <%= link_to "マイページ",public_customers_mypage_path %>
 

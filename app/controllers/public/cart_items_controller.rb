@@ -33,7 +33,6 @@ class Public::CartItemsController < ApplicationController
     end
     
     def destroy_all
-        @destroy = CartItem.all
         current_user.cart_items.destroy_all
         redirect_to request.referer
     end
