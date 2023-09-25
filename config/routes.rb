@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
  #devise_for :users
 
+
  # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -22,6 +23,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  registrations: "public/registrations",
  sessions: 'public/sessions'
 }
+
 
  namespace :public do
    root "homes#top"
