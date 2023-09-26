@@ -13,16 +13,19 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-   @order = Order.new(order_params)
-   @order.customer_id = current_customer.id
-   if @order.save
-     redirect_to public_orders_new_path(@order)
-   else 
-     render :new
-    end
-   end
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+  　if @order.save
+    　redirect_to public_orders_new_path(@order)
+  　else 
+    　render :new
+　　end
+  end
    
-   def confirm
+  def confirm
+    @order = Order.new
+    @orders = current_customer.orders.all
+    @total = 0
   end
   
   private
