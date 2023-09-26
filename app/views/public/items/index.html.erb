@@ -1,27 +1,25 @@
+<h2>ジャンル検索</h2>
 
-  <h2>ジャンル検索</h2>
-   <td>
-  <% @items.each do |item|%>
-    <h1><%= item.genre.name %></h1>
+<% @items.each do |item|%>
+<h4><%= item.genre.name %></h4>
+<% end %>
 
-      <% end %>
-    </td>
+<h2>商品一覧(全<%= @items.count %>件)</h2>
 
-  <h2>商品一覧(全<%= @items.count %>件)</h2>
+<% @items.each do |item| %>
 
-
-
-
-
-
-
-
-
-
-     </tr>
-    </tbody>
-  </table>
+<table class= "table">
+<tr>
+    <th>
+    <%= link_to public_item_path(item.id) do %>
+    <%= item.name %>
+    <% end %></br>
+  ¥<%= item.price_excluding_tax.to_s.reverse.scan(/.{1,3}/).join(',').reverse %>
+  　</th>
+</tr>
+<% end %>
+</table>
 
 
+<%= paginate @items, class:"text-center" %>
 
-  <%#= paginate @items, class:"text-center" %>
