@@ -5,9 +5,14 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
-  
-  def new 
+
+  def new
     @order = Order.new
     @customer = current_customer
   end
+
+  def create
+
+  end
+
 end
