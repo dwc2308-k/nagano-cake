@@ -12,6 +12,5 @@ ja:
     sent: "発送済"
   customer:
    is_deleted:
-    false: "退会"
-    true: "有効"
-
+    true: "退会"
+    false: "有効"
