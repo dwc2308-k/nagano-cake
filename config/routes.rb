@@ -23,6 +23,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  sessions: 'public/sessions'
 }
 
+
  namespace :public do
    root "homes#top"
    get "/about" => "homes#about"
@@ -30,7 +31,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
    get "/customers/mypage" => "customers#show"
    get "/customers/information/edit" => "customers#edit"
    patch "/customers" => "customers#update"
-   
+   patch "/customers/withdraw" => "customers#withdraw"
    get "/orders/new" => "orders#new"
    post "/orders/confirm" => "orders#confirm"
    get "orders/thanks" => "orders#thanks"
@@ -41,7 +42,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   resources :addresses, only: [:index,:create,:edit,:update,:destroy]
   delete "/cart_items/destroy_all" => "cart_items#destroy_all"
   resources :cart_items, only: [:index, :update, :create, :destroy]
-  
+
  end
 
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
