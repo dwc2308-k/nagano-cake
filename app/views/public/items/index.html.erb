@@ -1,1 +1,13 @@
-<h2><strong>商品一覧</strong>(全件)</h2>
+
+
+  <h2>商品一覧(全<%= @items.count %>件)</h2>
+
+    <% @items.each do |item|%>
+    <h1><%= item.genre.name %></h1>
+
+
+
+
+    <% end %>
+
+  <%#= paginate @items, class:"text-center" %>
