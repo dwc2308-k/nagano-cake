@@ -32,6 +32,14 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      get "/customers/mypage" => "customers#show"
      get "/customers/information/edit" => "customers#edit"
      patch "/customers" => "customers#update"
+     
+     get "/orders/new" => "orders#new"
+     post "/orders/confirm" => "orders#confirm"
+     get "orders/thanks" => "orders#thanks"
+     post "/orders" => "order#create"
+     get "/orders" => "orders#index"
+     get "/orders/:id" => "orders#show"
+     
     resources :items, only: [:index,:show]
   end
 
