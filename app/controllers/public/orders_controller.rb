@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   def index
+    @orders = current_customer.orders.all.page(params[:page])
   end
 
   def show
@@ -7,5 +8,6 @@ class Public::OrdersController < ApplicationController
   
   def new 
     @order = Order.new
+    @customer = current_customer
   end
 end
