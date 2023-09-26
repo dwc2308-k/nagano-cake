@@ -18,14 +18,14 @@
         
     <tr>
         <td>
-            <%= image_tag cart_item.item.image, size: "50×50" %>
+            <%= image_tag cart_item.item.get_image(50,50) %>
             <%= cart_item.item.name %>
         </td>
         <td>
             <%= cart_item.item.with_tax_price %>
         </td>
         <td>
-            <%= form_with model:cart_item, url: public_cart_item_path(cart_item.id), local:true do |f| %>
+            <%= form_with model:cart_item, url:public_cart_item_path(cart_item.id), local:true do |f| %>
                 <%= f.select :amount, *[1..10] %>
                 <%= f.submit '変更', class: 'btn btn-success' %>
             <% end %>
@@ -38,6 +38,8 @@
         </td>
     </tr>
     
+        <% @total += cart_item.subtotal %>
+        
 <% end %>
 
 </tbody>
@@ -49,6 +51,6 @@
 <table class="table, table-bordered">
     <tr>
         <th>合計金額</th>
-        <th>¥<%= @total.round.to_s(:delimited) %></th>
+        <th>¥<%= @total %></th>
     </tr>
 </table>
