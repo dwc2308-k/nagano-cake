@@ -19,11 +19,11 @@ class Public::OrdersController < ApplicationController
      redirect_to public_orders_new_path(@order)
    else 
      render :new
-    end
    end
+  end
    
    def confirm
-  end
+   end
   
   private
   def order_params
