@@ -1,8 +1,12 @@
-<h2>会員一覧</h2>
-
-<table class="table">
+<div class="container">
+  <div class="row-my-3">
+    <div class="col-m-4">
+   <h4>会員一覧</h4>
+   </div>
+   
+<table class= "table table-hover table-inverse mx-auto my-3">
     <thead>
-        <tr>
+        <tr class="p-3 mb-2 bg-info text-white">
             <th>会員ID</th>
             <th>氏名</th>
             <th>メールアドレス</th>
@@ -12,7 +16,7 @@
             <tr>
                 <td><%= customer.id %></td>
                 <td>
-                    <%= link_to admin_customer_path(customer.id) do %>
+                    <%= link_to admin_customer_path(customer.id), class:"text-dark border-bottom border-dark" do %>
                         <%= customer.last_name %><%= customer.first_name %>
                     <% end %>
                 </td>
@@ -24,9 +28,12 @@
                         <p>退会</p>
                     <% end %>
                 </td>
-                <%= paginate @customers %>
             </tr>
         <% end %>
     </thead>
 </table>
 
+<div class="col-lg-5 mx-auto" style="width: 200px;">
+<%= paginate @customers %></div>
+   </div>
+   </div>

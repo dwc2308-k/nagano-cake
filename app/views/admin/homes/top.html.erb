@@ -1,8 +1,12 @@
-<h2>注文履歴一覧</h2>
+<div class="container">
+  <div class="row-my-3">
+    <div class="col-m-4">
+   <h4>注文履歴一覧</h4>
+   </div>
 
 <table class="table">
     <thead>
-        <tr>
+        <tr class="p-3 mb-2 text-white" style="background:teal">
             <th>購入日時</th>
             <th>購入者</th>
             <th>注文個数</th>
@@ -25,3 +29,7 @@
         
     </tbody>
 </table>
+<div class="col-lg-5 mx-auto" style="width: 200px;">
+<%#= paginate @orders %></div>
+</div>
+</div>
