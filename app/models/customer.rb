@@ -8,7 +8,7 @@ class Customer < ApplicationRecord
           has_many :addresses
           has_many :cart_items
           has_many :orders
-          has_one_attached :image
+
 
         #validates :encrypted_password_confirmation, presence: true
         #validates :encrypted_password, length: { minimum: 1, maximum: 6 }
@@ -20,15 +20,6 @@ class Customer < ApplicationRecord
         validates :address, presence: true
         validates :phone_number, presence: true
         validates :email, presence: true
-
-  enum is_deleted: { false: 0, true: 1 }
-  #enum is_deleted: { 退会: 0, 有効: 1 }
-  
-  #def active_for_authentication?
-    #super && (is_deleted == false)
-    #super && (self.is_deleted?)
-  #end
-
 
 end
 
