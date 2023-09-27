@@ -1,0 +1,7 @@
+
+<% if address.errors.any? %>
+        <%= address.errors.count %>prohibited this obj from being saved:
+          <% address.errors.full_messages.each do |error| %>
+        <%= error %>
+        <% end %>
+  <% end %>

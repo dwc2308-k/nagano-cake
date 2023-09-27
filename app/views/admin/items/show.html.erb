@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-m-5">
+   <h4 class="bg-light text-dark">商品詳細</h4>
+   </div>
+  </div>
+
+  <div class="row my-5">
+   <div class="col-lg-5">
+<% if @item.image.attached? %>
+ <%= image_tag @item.image, size: "300x250" %>
+<% else %>
+ <%= image_tag 'no_image', size: "200x200" %>
+<% end %>
+</div>
+
+<div class="col-lg-7">
+<table>
+<tr>
+<td>商品名</td>
+<td><%= @item.name %></td>
+</tr>
+
+<tr>
+<td>商品説明</td>
+<td><%= @item.description %></td>
+</tr>
+
+<tr>
+<td>ジャンル</td>
+<td><%= @item.genre.name %></td>
+</tr>
+
+<tr>
+<td>
+ 税抜価格</br>
+(税込価格)
+</td>
+<td><%= @item.price_excluding_tax.to_s.reverse.scan(/.{1,3}/).join(',').reverse %>(<%= (@item.price_excluding_tax * 1.1).floor.to_s.reverse.scan(/.{1,3}/).join(',').reverse %>)円</td>
+</tr>
+
+<tr>
+<td>販売ステータス</td>
+<% if @item.is_active == true %>
+<td class="text-success">販売中</td>
+<% else %>
+<td>
+ 販売停止中
+<% end %>
+</td>
+
+<td>
+ <%= link_to "編集する", edit_admin_item_path, class:"btn btn-success" %>
+</td>
+ 
+</tr>
+
+</table>
+   </div>
+  </div>
+  </div>
