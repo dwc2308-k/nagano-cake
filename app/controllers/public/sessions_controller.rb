@@ -29,8 +29,9 @@ class Public::SessionsController < Devise::SessionsController
     public_root_path
   end
   
+
   def customer_state
-    ## 【処理内容1】入力sれたemailからアカウントを1件取得
+    ## 【処理内容1】入力されたemailからアカウントを1件取得
     @customer = Customer.find_by(email: params[:customer][:email])
     ## アカウントを取得できなかった場合、このメソッドを終了する
     return if !@customer
