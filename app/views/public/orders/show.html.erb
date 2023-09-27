@@ -1,6 +1,8 @@
 <h1>注文履歴詳細</h1>
 
 <b>注文情報</b>
+<table class="table table-bordered">
+    
 <tr>
     <td>注文日</td>
     <td><%= @order.created_at.to_s(:datetime_jp) %></td>
@@ -43,4 +45,18 @@
     <th>少計</th>
 </tr>
 
+</table>
+
+<table class="table table-bordered">
+    
 <% @order_details.each do |order_detail| %>
+<tr>
+    <td><%= order_detail.name %></td>
+    <td>¥<%= (order_detail.price * 1.1).floor.to_s(:delimited) %></td>
+    <td><%= order_detail.amount %></td>
+    <td>¥<%= (order_detail.price * order_detail.amount * 1.1).floor.to_s(:delimited) %></td>
+</tr>
+
+</table>
+
+<% end %>

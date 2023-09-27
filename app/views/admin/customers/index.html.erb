@@ -18,10 +18,10 @@
                 </td>
                 <td><%= customer.email %></td>
                 <td>
-                    <% if customer.is_deleted == '有効' %>
-                        <%= customer.is_deleted_i18n %>
+                    <% if customer.is_deleted == 'false' %>
+                        <p>有効</p>
                     <% else %>
-                        <%= customer.is_deleted_i18n %>
+                        <p>退会</p>
                     <% end %>
                 </td>
                 <%= paginate @customers %>

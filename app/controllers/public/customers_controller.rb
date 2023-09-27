@@ -13,6 +13,7 @@ class Public::CustomersController < ApplicationController
 
   def edit
     @customer = current_customer
+    @customers = Customer.all
   end
 
 
