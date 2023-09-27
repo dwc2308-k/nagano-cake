@@ -52,13 +52,14 @@
     <tr>
         <td>請求金額</td>
         <td><%= @total + @order.shipping_fee %></td>
+        
     </tr>
 </table>
 
 <h2>支払い方法</h2>　<%= @order.payment_option_i18n %>
 
-<h2>お届け先</h2>　〒<%= @order.postcode %>　<%=@order.address %></br>
-                    <%= @order.name %>
-                    
-<%= link_to '注文を確定する', public_orders_thanks_path, class: 'btn btn-success' %>
+<h2>お届け先</h2>　〒<%= @order.postcode %>
+                     <%= @order.address %>
+                     <%= @order.name %>
 
+<%= link_to '注文を確定する', public_orders_thanks_path, class: 'btn btn-success' %>

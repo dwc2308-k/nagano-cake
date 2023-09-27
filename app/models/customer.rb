@@ -9,6 +9,7 @@ class Customer < ApplicationRecord
           has_many :cart_items
           has_many :orders
 
+
         #validates :encrypted_password_confirmation, presence: true
         #validates :encrypted_password, length: { minimum: 1, maximum: 6 }
         validates :last_name, presence: true
@@ -19,7 +20,6 @@ class Customer < ApplicationRecord
         validates :address, presence: true
         validates :phone_number, presence: true
         validates :email, presence: true
-
 
 end
 

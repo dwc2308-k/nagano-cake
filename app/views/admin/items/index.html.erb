@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row-m">
+  <div class="row-my-3">
     <div class="col-m-4">
    <h4>商品一覧</h4>
    </div>
@@ -17,7 +17,7 @@
 
 
 <table class= "table table-hover table-inverse mx-auto my-3">
-<tr>
+  <tr class="p-3 mb-2 text-dark" style="background:pink">
   <th>商品ID</th>
   <th>商品名</th>
   <th>税抜価格</th>
@@ -33,7 +33,7 @@
   </td>
 
   <td>
-    <%= link_to admin_item_path(item.id) do %>
+    <%= link_to admin_item_path(item.id), class:"text-dark border-bottom border-dark" do %>
     <%= item.name %>
     <% end %>
   </td>
@@ -57,8 +57,8 @@
 </tr>
 <% end %>
 </table>
-<%= paginate @items %>
-  </div>
+<div class="col-lg-4 mx-auto" style="width: 200px;">
+<%= paginate @items %></div>  </div>
   </div>
   </div>
 

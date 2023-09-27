@@ -1,6 +1,6 @@
 class Admin::CustomersController < ApplicationController
     def index
-        @customers = Customer.page(params[:page])
+        @customers = Customer.page(params[:page]).per(6)
     end
     
     def show
