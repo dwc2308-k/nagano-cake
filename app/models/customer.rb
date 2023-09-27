@@ -24,9 +24,9 @@ class Customer < ApplicationRecord
   enum is_deleted: { false: 0, true: 1 }
   #enum is_deleted: { 退会: 0, 有効: 1 }
   
-  def active_for_authentication?
-    super && (is_deleted == false)
-  end
+  #def active_for_authentication?
+    #super && (is_deleted == false)
+  #end
 
 end
 
