@@ -27,6 +27,7 @@ class Public::OrdersController < ApplicationController
     @orders = current_customer.orders.all
     @total = 0
   end
+
   
   private
   def order_params
