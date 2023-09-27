@@ -27,7 +27,7 @@ class Public::AddressesController < ApplicationController
       @address = Address.find(params[:id])
       if @address.update(address_params)
         flash[:success] = "配送先の変更内容を保存しました。"
-        redirect_to public_addresses_pathh(@address)
+        redirect_to public_addresses_path(@address)
       else
         flash[:danger] = "配送先の変更内容に不備があります。"
         render :edit
