@@ -16,43 +16,87 @@
   </head>
 
   <body>
-    <h1><%= image_tag('s.png') %></h1>
+    <header class="border border-dark">
+      <div class="container-fould">
+       <nav class="navbar navbar-expand-lg" >
+        <div class="navbar-brand">
+          <%= link_to public_root_path do %>
+          <h1><%= image_tag('s.png') %></h1>
+          <% end %>
+        </div>
 
 <% if customer_signed_in? %>
+  <ul class="ml-auto d-flex">
+    <li class="nav-link text-light ">
+    <%= link_to "マイページ",public_customers_mypage_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "マイページ",public_customers_mypage_path %>
+    <li class="nav-link text-light ">
+    <%= link_to "商品一覧", public_items_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "商品一覧", public_items_path %>
+    <li class="nav-link text-light ">
+    <%= link_to "カート", public_cart_items_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "カート", public_cart_items_path %>
+    <li class="nav-link text-light ">
+    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-dark" %>
+    </li>
+  </ul>
 
-    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+  <% elsif admin_signed_in? %>
+  <ul class="ml-auto d-flex">
+    <li class="nav-link text-light ">
+    <%= link_to "商品一覧",admin_items_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <% elsif admin_signed_in? %>
+    <li class="nav-link text-light ">
+    <%= link_to "会員一覧",admin_customers_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "商品一覧",admin_items_path %>
+    <li class="nav-link text-light ">
+    <%= link_to "注文履歴一覧",admin_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "会員一覧",admin_customers_path %>
+    <li class="nav-link text-light ">
+    <%= link_to "ジャンル一覧",admin_genres_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "注文履歴一覧",admin_path %>
+    <li class="nav-link text-light ">
+    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
+    </li>
+  </ul>
+  <% else %>
 
-    <%= link_to "ジャンル一覧",admin_genres_path %>
+  <ul class="ml-auto d-flex">
+    <li class="nav-link text-light ">
+    <%= link_to "About", public_about_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+    <li class="nav-link text-light ">
+    <%= link_to "商品一覧", public_items_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <% else %>
+    <li class="nav-link text-light ">
+    <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-dark" %>
+    </li>
 
-    <%= link_to "About", public_about_path %>
+    <li class="nav-link text-light ">
+    <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-dark" %>
+    </li>
+   </ul>
+  <% end %>
 
-    <%= link_to "商品一覧", public_items_path %>
-
-    <%= link_to "新規登録", new_customer_registration_path, class: "btn" %>
-
-    <%= link_to "ログイン", new_customer_session_path %>
-
-    <% end %>
+       </nav>
+      </div>
+    </header>
 
     <%= yield %>
+
+      <footer class="border border-dark">
+
+</footer>
+
   </body>
 
 </html>

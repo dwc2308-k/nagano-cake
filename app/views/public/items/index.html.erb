@@ -12,8 +12,12 @@
 <tr>
     <th>
     <%= link_to public_item_path(item.id) do %>
+    <% if item.image.attached? %>
+ 　 <%= image_tag item.image, size: "200x150" %>
+ 　 <% end %>
+    <% end %>
     <%= item.name %>
-    <% end %></br>
+   </br>
   ¥<%= item.price_excluding_tax.to_s.reverse.scan(/.{1,3}/).join(',').reverse %>
   　</th>
 </tr>
