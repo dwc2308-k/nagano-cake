@@ -6,6 +6,8 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
           has_many :addresses
+          has_many :cart_items
+          has_many :orders
 
         #validates :encrypted_password_confirmation, presence: true
         #validates :encrypted_password, length: { minimum: 1, maximum: 6 }
